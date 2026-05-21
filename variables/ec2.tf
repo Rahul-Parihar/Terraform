@@ -54,17 +54,18 @@ resource "aws_instance" "my_instance" {
   ]
 
   root_block_device {
-    volume_size = var. ec2_volume-size
+    volume_size = var.ec2_volume_size
     volume_type = "gp3"
   }
 
   tags = {
-    Name = var.ec2_insatnce_name
+    Name = var.ec2_instance_name
   }
 }
 
 resource "aws_ec2_instance_state" "my_instance_state" {
-    instance_id = aws_instance.my_instance.id
-    state = var.aws_ec2_instance_state
-  
+  instance_id = aws_instance.my_instance.id
+  state       = var.aws_ec2_instance_state
 }
+
+
